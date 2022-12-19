@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
         // Movement
         Move(playerActions.Move.ReadValue<Vector2>());
 
-        if (Input.GetKey(KeyCode.Space) && Shoot != null)
+        if (playerActions.Fire.IsPressed() && Shoot != null)
             Shoot();
     }
 
