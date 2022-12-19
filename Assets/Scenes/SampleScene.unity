@@ -478,7 +478,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1607ac0e60f41a47bbbd74f49ba8052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _missilePrefab: {fileID: 0}
+  _missilePrefab: {fileID: 5973605799613332501, guid: 92ee005ec8ab21148a20c8c2a3c36d87,
+    type: 3}
   _tempBulletData:
     _relativeSpawnPos: {x: 0, y: 0, z: 0}
     _direction: {x: 0, y: 0, z: 0}
