@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        playerInput = new PlayerInput();
+        playerInput = new PlayerInput(); // Located in Input Actions
         playerActions = playerInput.Player;
         _weapons = gameObject.GetComponentsInChildren<IWeapon>();
         foreach (var weapon in _weapons)
