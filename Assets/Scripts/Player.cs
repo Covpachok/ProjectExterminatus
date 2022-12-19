@@ -1,5 +1,6 @@
 using UnityEngine;
 using Weapon;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -8,9 +9,13 @@ public class Player : MonoBehaviour
     private IWeapon[] _weapons;
 
     public event IWeapon.ShootAction Shoot;
+    private PlayerInput playerInput;
+    private PlayerInput.PlayerActions playerActions;
 
     private void Awake()
     {
+        playerInput = new PlayerInput(); // Located in Input Actions
+        playerActions = playerInput.Player;
         _weapons = gameObject.GetComponentsInChildren<IWeapon>();
         foreach (var weapon in _weapons)
             Shoot += weapon.Shoot;
@@ -25,11 +30,33 @@ public class Player : MonoBehaviour
     void Update()
     {
         // Movement
-        var vertical = Input.GetAxis("Vertical") * Vector3.up;
-        var horizontal = Input.GetAxis("Horizontal") * Vector3.right;
-        transform.Translate((vertical + horizontal) * (Time.deltaTime * _movementSpeed));
+        Move(playerActions.Move.ReadValue<Vector2>());
 
-        if (Input.GetKey(KeyCode.Space) && Shoot != null)
+        if (playerActions.Fire.IsPressed() && Shoot != null)
             Shoot();
     }
+
+    private void Move(Vector2 input)
+    {
+        // Input system
+        var vertical = input.y * Vector3.up; //Input.GetAxis("Vertical") * Vector3.up;
+        var horizontal = input.x * Vector3.right; //Input.GetAxis("Horizontal") * Vector3.right;
+        transform.Translate((horizontal + vertical) * (Time.deltaTime * _movementSpeed));
+
+        // Bababooye Original
+        // var vertical = Input.GetAxis("Vertical") * Vector3.up; //Input.GetAxis("Vertical") * Vector3.up;
+        // var horizontal = Input.GetAxis("Horizontal") * Vector3.right; //Input.GetAxis("Horizontal") * Vector3.right;
+        // transform.Translate((horizontal + vertical) * (Time.deltaTime * _movementSpeed));
+    }
+
+    private void OnEnable()
+    {
+        playerActions.Enable();    
+    }
+
+    private void OnDisable()
+    {
+        playerActions.Disable();    
+    }
+
 }
