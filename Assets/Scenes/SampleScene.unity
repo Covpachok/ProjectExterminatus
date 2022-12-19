@@ -484,6 +484,7 @@ MonoBehaviour:
     _direction: {x: 0, y: 0, z: 0}
     _speed: 0
     _damage: 0
+    _targetPlayer: 0
     _size: 0
   _maxCharges: 16
   _chargesReloadingAmount: 2
@@ -605,6 +606,7 @@ MonoBehaviour:
     _direction: {x: 0, y: 1, z: 0}
     _speed: 45
     _damage: 1
+    _targetPlayer: 0
     _size: 0.25
   _shootingDelay: 0.1
 --- !u!1 &832575517
@@ -901,6 +903,85 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 469049429}
+  - {fileID: 2042833366}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2042833365
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2042833366}
+  - component: {fileID: 2042833367}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2042833366
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042833365}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1705723705}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2042833367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042833365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69821ece7ff10de478b2e6e075ebed7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemies:
+  - {fileID: 513100314345064581, guid: 651e2a36657f9da498f055e6d0c8033a, type: 3}
+  - {fileID: 2020437720954629559, guid: a2d96388e1d9d424d9b36b1aa6690c82, type: 3}
+  _conveyor:
+  - _id: 0
+    _delayBeforeNext: 0
+    _randomSpawnPosition: 0
+    _spawnPosition: {x: 1, y: 17, z: 0}
+    _maxSpawnPosition: {x: 0, y: 0, z: 0}
+  - _id: 0
+    _delayBeforeNext: 2
+    _randomSpawnPosition: 0
+    _spawnPosition: {x: -1, y: 17, z: 0}
+    _maxSpawnPosition: {x: 0, y: 0, z: 0}
+  - _id: 1
+    _delayBeforeNext: 0
+    _randomSpawnPosition: 0
+    _spawnPosition: {x: -5, y: 17, z: 0}
+    _maxSpawnPosition: {x: 0, y: 0, z: 0}
+  - _id: 1
+    _delayBeforeNext: 5
+    _randomSpawnPosition: 0
+    _spawnPosition: {x: 5, y: 17, z: 0}
+    _maxSpawnPosition: {x: 0, y: 0, z: 0}
+  - _id: 0
+    _delayBeforeNext: 2.5
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -10, y: 17, z: 0}
+    _maxSpawnPosition: {x: 10, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 2.5
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -10, y: 17, z: 0}
+    _maxSpawnPosition: {x: 10, y: 17, z: 0}
