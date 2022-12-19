@@ -1,5 +1,4 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Projectile
@@ -39,8 +38,6 @@ namespace Projectile
         private void Update()
         {
             Move(Time.deltaTime);
-            if (transform.position.x is > 100 or < -100 || transform.position.y is > 100 or < -100)
-                Destroy(gameObject);
         }
 
         public void Move(float delta)
