@@ -5,7 +5,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float _movementSpeed;
     [SerializeField] private int _maxHealth;
-    [SerializeField] private int _touchDamage = 5;
+    [SerializeField] private int _touchDamage = 50;
 
     // Serialized only for debugging
     [SerializeField] private int _currentHealth;

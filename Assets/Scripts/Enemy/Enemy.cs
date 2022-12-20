@@ -54,7 +54,7 @@ namespace Enemy
             if (player is not null)
             {
                 _currentHealth -= player.TouchDamage;
-                print($"Taken {projectile.Damage} damage. HP: {_currentHealth}");
+                print($"Taken {player.TouchDamage} damage. HP: {_currentHealth}");
                 if(_currentHealth <= 0)
                     Destroy(gameObject);
                 
