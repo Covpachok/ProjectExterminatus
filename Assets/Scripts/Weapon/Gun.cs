@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Weapon
 {
-    public class Gun : MonoBehaviour, IWeapon
+    public class Gun : Weapon
     {
         [SerializeField] private GameObject _bulletPrefab;
 
@@ -16,7 +16,7 @@ namespace Weapon
 
         private float _timeout;
 
-        public void Shoot()
+        public override void Shoot()
         {
             //if (_lastShootTime + _shootingDelay > Time.time) return;
             //float lag = Time.time - _lastShootTime + _shootingDelay;
@@ -28,12 +28,10 @@ namespace Weapon
                 return;
             }
 
-            Debug.Log(_timeout);
-
             foreach (var bulletData in _bulletsData)
             {
                 var bullet = Instantiate(_bulletPrefab).GetComponent<Bullet>();
-                bullet.Initialize(bulletData, transform.position);
+                bullet.Initialize(bulletData, transform.position, _targetPlayer);
 
                 bullet.Move(-_timeout);
                 //bullet.Move(lag);

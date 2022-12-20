@@ -4,10 +4,10 @@ using Random = UnityEngine.Random;
 
 namespace Projectile
 {
-    public class Missile : MonoBehaviour, IProjectile
+    public class Missile : Projectile
     {
         [Serializable]
-        public class MissileData : IProjectile.ProjectileData
+        public class MissileData : Projectile.ProjectileData
         {
             [SerializeField] private float _minSize;
             [SerializeField] private float _maxSize;
@@ -21,11 +21,9 @@ namespace Projectile
         }
 
         private Vector3 _currentDirection;
-        private int _damage;
-        private float _speed;
         private float _rotationSpeed;
 
-        public void Initialize(IProjectile.ProjectileData projectileData, Vector3 pos)
+        public override void Initialize(Projectile.ProjectileData projectileData, Vector3 pos, bool targetPlayer)
         {
             if (projectileData is not MissileData missileData)
             {
@@ -37,6 +35,7 @@ namespace Projectile
             _speed = missileData.Speed;
             _rotationSpeed = missileData.RotationSpeed;
             _currentDirection = missileData.Direction;
+            _targetPlayer = targetPlayer;
 
             var localTransform = transform;
             localTransform.position = pos + missileData.RelativeSpawnPos;
@@ -45,7 +44,17 @@ namespace Projectile
             localTransform.localScale = Vector3.one * scale;
         }
 
-        public void Move(float delta)
+        private void FixedUpdate()
+        {
+            
+        }
+
+        public override void Move(float delta)
+        {
+            
+        }
+
+        private void MoveTowardsShip()
         {
             
         }

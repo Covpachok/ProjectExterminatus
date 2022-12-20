@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace Projectile
 {
-    public class Bullet : MonoBehaviour, IProjectile
+    public class Bullet : Projectile
     {
         [Serializable]
-        public class BulletData : IProjectile.ProjectileData
+        public class BulletData : Projectile.ProjectileData
         {
             [SerializeField] private float _size;
 
@@ -14,10 +14,8 @@ namespace Projectile
         }
 
         private Vector3 _direction;
-        private float _speed;
-        private int _damage;
 
-        public void Initialize(IProjectile.ProjectileData projectileData, Vector3 pos)
+        public override void Initialize(Projectile.ProjectileData projectileData, Vector3 pos, bool targetPlayer)
         {
             if (projectileData is not BulletData bulletData)
             {
@@ -28,6 +26,7 @@ namespace Projectile
             _damage = bulletData.Damage;
             _speed = bulletData.Speed;
             _direction = bulletData.Direction;
+            _targetPlayer = targetPlayer;
 
             var localTransform = transform;
             localTransform.position = pos + bulletData.RelativeSpawnPos;
@@ -40,9 +39,30 @@ namespace Projectile
             Move(Time.deltaTime);
         }
 
-        public void Move(float delta)
+        public override void Move(float delta)
         {
             transform.position += _direction * (delta * _speed);
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (_targetPlayer)
+            {
+                var player = other.GetComponent<Player>();
+                if (player is not null)
+                {
+                    Debug.Log("HIT PLAYER!!");
+                    Destroy(gameObject);
+                }
+            }
+            else
+            {
+                var enemy = other.GetComponent<Enemy.Enemy>();
+                if (enemy is not null)
+                {
+                    Destroy(gameObject);
+                }
+            }
         }
     }
 }

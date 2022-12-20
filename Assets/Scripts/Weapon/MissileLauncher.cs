@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 namespace Weapon
 {
-    public class MissileLauncher: MonoBehaviour, IWeapon
+    public class MissileLauncher: Weapon
     {
         [SerializeField] private GameObject _missilePrefab;
 
@@ -41,7 +41,7 @@ namespace Weapon
                 StartCoroutine(UpdateCharges());
         }
 
-        public void Shoot()
+        public override void Shoot()
         {
             if (_currentCharges <= _minChargesShoot || _lastShootTime + _shootingDelay > Time.time)
                 return;
@@ -54,7 +54,7 @@ namespace Weapon
             for (int i = 0; i < chargesToShoot; ++i)
             {
                 var missile = Instantiate(_missilePrefab).GetComponent<Bullet>();
-                missile.Initialize(_tempBulletData, new Vector3(pos.x + Random.value * 2 - 1, pos.y + Random.value - 0.5f, 0));
+                missile.Initialize(_tempBulletData, new Vector3(pos.x + Random.value * 2 - 1, pos.y + Random.value - 0.5f, 0), _targetPlayer);
             }
 
             _currentCharges -= chargesToShoot;

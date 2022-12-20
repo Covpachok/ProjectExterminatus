@@ -132,7 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 122187266}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 225809854}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Weapons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,7 +444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 463921545}
   - component: {fileID: 463921546}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MissileLauncher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -478,6 +478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1607ac0e60f41a47bbbd74f49ba8052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _targetPlayer: 0
   _missilePrefab: {fileID: 5973605799613332501, guid: 92ee005ec8ab21148a20c8c2a3c36d87,
     type: 3}
   _tempBulletData:
@@ -485,7 +486,6 @@ MonoBehaviour:
     _direction: {x: 0, y: 0, z: 0}
     _speed: 0
     _damage: 0
-    _targetPlayer: 0
     _size: 0
   _maxCharges: 16
   _chargesReloadingAmount: 2
@@ -504,7 +504,9 @@ GameObject:
   - component: {fileID: 469049429}
   - component: {fileID: 469049430}
   - component: {fileID: 469049431}
-  m_Layer: 0
+  - component: {fileID: 469049433}
+  - component: {fileID: 469049432}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -541,6 +543,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 15
+  _maxHealth: 15
+  _touchDamage: 5
+  _currentHealth: 0
 --- !u!114 &469049431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -556,6 +561,53 @@ MonoBehaviour:
   _onExitingScreenAction: 2
   _outOfScreenThreshold: 0
   _isOnScreen: 1
+--- !u!50 &469049432
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469049428}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!61 &469049433
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469049428}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &661060122
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,7 +618,7 @@ GameObject:
   m_Component:
   - component: {fileID: 661060123}
   - component: {fileID: 661060124}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GenericGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -600,14 +652,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae93ab5bfd09a74eab88bd16b0fe70e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _targetPlayer: 0
   _bulletPrefab: {fileID: 7810964605142224280, guid: cf1a6954544636d45ac13a7422dcdf1a,
     type: 3}
   _bulletsData:
   - _relativeSpawnPos: {x: 0, y: 0, z: 0}
     _direction: {x: 0, y: 1, z: 0}
     _speed: 45
+    _damage: 5
+    _size: 0.35
+  - _relativeSpawnPos: {x: 0.5, y: 0, z: 0}
+    _direction: {x: 1, y: 1, z: 0}
+    _speed: 45
     _damage: 1
-    _targetPlayer: 0
+    _size: 0.25
+  - _relativeSpawnPos: {x: -0.5, y: 0, z: 0}
+    _direction: {x: -1, y: 1, z: 0}
+    _speed: 45
+    _damage: 1
     _size: 0.25
   _shootingDelay: 0.1
 --- !u!1 &832575517
@@ -670,7 +732,7 @@ GameObject:
   - component: {fileID: 1418266089}
   - component: {fileID: 1418266093}
   - component: {fileID: 1418266092}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -687,7 +749,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 122187266}
   m_RootOrder: 0
@@ -712,7 +774,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 78dbd0b54294d454ab4e0dc7638f48b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -956,15 +1018,15 @@ MonoBehaviour:
   - {fileID: 513100314345064581, guid: 651e2a36657f9da498f055e6d0c8033a, type: 3}
   - {fileID: 2020437720954629559, guid: a2d96388e1d9d424d9b36b1aa6690c82, type: 3}
   _conveyor:
-  - _id: 0
+  - _id: 1
     _delayBeforeNext: 0
     _randomSpawnPosition: 0
-    _spawnPosition: {x: 1, y: 17, z: 0}
+    _spawnPosition: {x: 5, y: 17, z: 0}
     _maxSpawnPosition: {x: 0, y: 0, z: 0}
-  - _id: 0
+  - _id: 1
     _delayBeforeNext: 2
     _randomSpawnPosition: 0
-    _spawnPosition: {x: -1, y: 17, z: 0}
+    _spawnPosition: {x: -5, y: 17, z: 0}
     _maxSpawnPosition: {x: 0, y: 0, z: 0}
   - _id: 1
     _delayBeforeNext: 0
@@ -986,3 +1048,13 @@ MonoBehaviour:
     _randomSpawnPosition: 1
     _spawnPosition: {x: -10, y: 17, z: 0}
     _maxSpawnPosition: {x: 10, y: 17, z: 0}
+  - _id: 1
+    _delayBeforeNext: 2.5
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: 0, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 1
+    _delayBeforeNext: 2.5
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 0, y: 17, z: 0}

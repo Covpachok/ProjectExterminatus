@@ -1,39 +1,39 @@
+using Unity.VisualScripting;
 using UnityEngine;
-using Weapon;
-using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private float _movementSpeed;
+    [SerializeField] private int _maxHealth;
+    [SerializeField] private int _touchDamage = 5;
 
-    private IWeapon[] _weapons;
+    // Serialized only for debugging
+    [SerializeField] private int _currentHealth;
+    
+    public int TouchDamage => _touchDamage;
 
-    public event IWeapon.ShootAction Shoot;
-    private PlayerInput playerInput;
-    private PlayerInput.PlayerActions playerActions;
+    private Weapon.Weapon[] _weapons;
+
+    private PlayerInput _playerInput;
+    private PlayerInput.PlayerActions _playerActions;
 
     private void Awake()
     {
-        playerInput = new PlayerInput(); // Located in Input Actions
-        playerActions = playerInput.Player;
-        _weapons = gameObject.GetComponentsInChildren<IWeapon>();
-        foreach (var weapon in _weapons)
-            Shoot += weapon.Shoot;
-        Debug.Log(_weapons.Length);
-
-        //Shoot += GetComponentInChildren<IWeapon>().Shoot;
-        //Shoot += _weaponTest.GetComponent<IWeapon>().Shoot;
-        if (Shoot == null)
-            print("WHYYYY");
+        _playerInput = new PlayerInput(); // Located in Input Actions
+        _playerActions = _playerInput.Player;
+        _weapons = gameObject.GetComponentsInChildren<Weapon.Weapon>();
+        _currentHealth = _maxHealth;
+        Debug.Log("Player weapons amount: " + _weapons.Length);
     }
 
     void Update()
     {
         // Movement
-        Move(playerActions.Move.ReadValue<Vector2>());
+        Move(_playerActions.Move.ReadValue<Vector2>());
 
-        if (playerActions.Fire.IsPressed() && Shoot != null)
-            Shoot();
+        if (_playerActions.Fire.IsPressed())
+            foreach (var weapon in _weapons)
+                weapon.Shoot();
     }
 
     private void Move(Vector2 input)
@@ -51,12 +51,36 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        playerActions.Enable();    
+        _playerActions.Enable();
     }
 
     private void OnDisable()
     {
-        playerActions.Disable();    
+        _playerActions.Disable();
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log($"Player hit {other.name}");
+        var projectile = other.GetComponent<Projectile.Projectile>();
+        if (projectile is not null)
+        {
+            if (!projectile.TargetPlayer)
+                return;
+                
+            _currentHealth -= projectile.Damage;
+            if (_currentHealth <= 0)
+                print("Player is DEAD (X o X)");
+            return;
+        }
+
+        var enemy = other.GetComponent<Enemy.Enemy>();
+        if (enemy is not null)
+        {
+            _currentHealth -= enemy.TouchDamage;
+            if (_currentHealth <= 0)
+                print("Player is DEAD (X o X)");
+            return;
+        }
+    }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Projectile
 {
-    public interface IProjectile
+    public abstract class Projectile : MonoBehaviour
     {
         [Serializable]
         public abstract class ProjectileData
@@ -12,16 +12,24 @@ namespace Projectile
             [SerializeField] private Vector3 _direction;
             [SerializeField] private float _speed;
             [SerializeField] private int _damage;
-            [SerializeField] private bool _targetPlayer;
 
             public Vector3 RelativeSpawnPos => _relativeSpawnPos;
             public Vector3 Direction => _direction;
             public float Speed => _speed;
             public int Damage => _damage;
-            public bool TargetPlayer => _targetPlayer;
         }
 
-        public void Initialize(ProjectileData data, Vector3 pos);
-        public void Move(float delta);
+        protected int _damage;
+        protected float _speed;
+        protected bool _targetPlayer;
+
+        public int Damage => _damage;
+        public bool TargetPlayer => _targetPlayer;
+
+        public virtual void Initialize(ProjectileData data, Vector3 pos, bool targetPlayer)
+        {}
+
+        public virtual void Move(float delta)
+        {}
     }
 }
