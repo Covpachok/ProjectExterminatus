@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -36,6 +37,11 @@ public class Player : MonoBehaviour
                 weapon.Shoot();
     }
 
+    private void FixedUpdate()
+    {
+        Debug.DrawRay(transform.position, transform.TransformDirection(Vector2.up) * 10);
+    }
+
     private void Move(Vector2 input)
     {
         // Input system
@@ -70,7 +76,7 @@ public class Player : MonoBehaviour
                 
             _currentHealth -= projectile.Damage;
             if (_currentHealth <= 0)
-                print("Player is DEAD (X o X)");
+                OnPlayerDeath();
             return;
         }
 
@@ -79,8 +85,14 @@ public class Player : MonoBehaviour
         {
             _currentHealth -= enemy.TouchDamage;
             if (_currentHealth <= 0)
-                print("Player is DEAD (X o X)");
+                OnPlayerDeath();
             return;
         }
+    }
+
+    private void OnPlayerDeath()
+    {
+        print("Player is DEAD (X o X)");
+        Destroy(gameObject);
     }
 }

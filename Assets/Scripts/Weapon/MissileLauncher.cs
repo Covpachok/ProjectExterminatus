@@ -5,12 +5,11 @@ using Random = UnityEngine.Random;
 
 namespace Weapon
 {
-    public class MissileLauncher: Weapon
+    public class MissileLauncher : Weapon
     {
         [SerializeField] private GameObject _missilePrefab;
 
-        // DELETE AFTER TESTS
-        [SerializeField] private Bullet.BulletData _tempBulletData;
+        [SerializeField] private Missile.MissileData _missileData;
 
         [SerializeField] private int _maxCharges;
         [SerializeField] private int _chargesReloadingAmount;
@@ -37,7 +36,7 @@ namespace Weapon
                 _currentCharges = _maxCharges;
 
             yield return new WaitForSeconds(_chargesReloadingDelay);
-            if(_currentCharges != _maxCharges)
+            if (_currentCharges != _maxCharges)
                 StartCoroutine(UpdateCharges());
         }
 
@@ -53,8 +52,9 @@ namespace Weapon
 
             for (int i = 0; i < chargesToShoot; ++i)
             {
-                var missile = Instantiate(_missilePrefab).GetComponent<Bullet>();
-                missile.Initialize(_tempBulletData, new Vector3(pos.x + Random.value * 2 - 1, pos.y + Random.value - 0.5f, 0), _targetPlayer);
+                var missile = Instantiate(_missilePrefab).GetComponent<Missile>();
+                missile.Initialize(_missileData,
+                    new Vector3(pos.x + Random.value - 0.5f, pos.y + Random.value / 2, 0), _targetPlayer);
             }
 
             _currentCharges -= chargesToShoot;

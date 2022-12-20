@@ -349,7 +349,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 0.1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -450,7 +450,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &463921545
 Transform:
   m_ObjectHideFlags: 0
@@ -479,20 +479,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetPlayer: 0
-  _missilePrefab: {fileID: 5973605799613332501, guid: 92ee005ec8ab21148a20c8c2a3c36d87,
+  _missilePrefab: {fileID: 2761083840790441364, guid: fc9dceb8867322d4483cf86f4e19b502,
     type: 3}
-  _tempBulletData:
+  _missileData:
     _relativeSpawnPos: {x: 0, y: 0, z: 0}
-    _direction: {x: 0, y: 0, z: 0}
-    _speed: 0
-    _damage: 0
-    _size: 0
-  _maxCharges: 16
-  _chargesReloadingAmount: 2
-  _minChargesShoot: 2
-  _maxChagresShoot: 8
+    _direction: {x: 0, y: 1, z: 0}
+    _speed: 20
+    _damage: 5
+    _minSize: 0.25
+    _maxSize: 0.5
+    _rotationSpeed: 7.5
+    _detectionRange: 2.5
+    _targetPursuitAcceleration: 2.5
+    _wanderStrength: 0.075
+  _maxCharges: 36
+  _chargesReloadingAmount: 4
+  _minChargesShoot: 8
+  _maxChagresShoot: 12
   _chargesReloadingDelay: 0.5
-  _shootingDelay: 0.1
+  _shootingDelay: 0.2
 --- !u!1 &469049428
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,7 +629,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &661060123
 Transform:
   m_ObjectHideFlags: 0
@@ -930,7 +935,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1641221139}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 5}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1018,43 +1023,5888 @@ MonoBehaviour:
   - {fileID: 513100314345064581, guid: 651e2a36657f9da498f055e6d0c8033a, type: 3}
   - {fileID: 2020437720954629559, guid: a2d96388e1d9d424d9b36b1aa6690c82, type: 3}
   _conveyor:
-  - _id: 1
-    _delayBeforeNext: 0
-    _randomSpawnPosition: 0
-    _spawnPosition: {x: 5, y: 17, z: 0}
-    _maxSpawnPosition: {x: 0, y: 0, z: 0}
-  - _id: 1
-    _delayBeforeNext: 2
-    _randomSpawnPosition: 0
-    _spawnPosition: {x: -5, y: 17, z: 0}
-    _maxSpawnPosition: {x: 0, y: 0, z: 0}
-  - _id: 1
-    _delayBeforeNext: 0
-    _randomSpawnPosition: 0
-    _spawnPosition: {x: -5, y: 17, z: 0}
-    _maxSpawnPosition: {x: 0, y: 0, z: 0}
-  - _id: 1
-    _delayBeforeNext: 5
-    _randomSpawnPosition: 0
-    _spawnPosition: {x: 5, y: 17, z: 0}
-    _maxSpawnPosition: {x: 0, y: 0, z: 0}
   - _id: 0
-    _delayBeforeNext: 2.5
-    _randomSpawnPosition: 1
-    _spawnPosition: {x: -10, y: 17, z: 0}
-    _maxSpawnPosition: {x: 10, y: 17, z: 0}
-  - _id: 0
-    _delayBeforeNext: 2.5
-    _randomSpawnPosition: 1
-    _spawnPosition: {x: -10, y: 17, z: 0}
-    _maxSpawnPosition: {x: 10, y: 17, z: 0}
-  - _id: 1
-    _delayBeforeNext: 2.5
-    _randomSpawnPosition: 1
-    _spawnPosition: {x: 0, y: 17, z: 0}
-    _maxSpawnPosition: {x: 13, y: 17, z: 0}
-  - _id: 1
-    _delayBeforeNext: 2.5
+    _delayBeforeNext: 0.1
     _randomSpawnPosition: 1
     _spawnPosition: {x: -13, y: 17, z: 0}
-    _maxSpawnPosition: {x: 0, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+  - _id: 0
+    _delayBeforeNext: 0.1
+    _randomSpawnPosition: 1
+    _spawnPosition: {x: -13, y: 17, z: 0}
+    _maxSpawnPosition: {x: 13, y: 17, z: 0}
+--- !u!23 &513100312486649714
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100312486649719}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: c4635555604429341876ace562444c50, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &513100312486649715
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100312486649719}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &513100312486649716
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100312486649719}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.827, z: 0}
+  m_LocalScale: {x: 0.45000002, y: 0.55, z: 0.45000002}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 513100314056389607}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &513100312486649719
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 513100312486649716}
+  - component: {fileID: 513100312486649715}
+  - component: {fileID: 513100312486649714}
+  m_Layer: 7
+  m_Name: Cylinder (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &513100312718946014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100312718946017}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.4540718, y: 1.3773817, z: 0.22510608}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 513100313670170911}
+  m_Father: {fileID: 513100314056389607}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &513100312718946017
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 513100312718946014}
+  m_Layer: 7
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &513100313072455556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100313072455560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab641d89f4b37f49a29f10f6a13badd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movementSpeed: 0
+  _maxHealth: 10000
+  _touchDamage: 5
+--- !u!114 &513100313072455559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100313072455560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 274ceabede4b57a42997c249fcbf29ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onExitingScreenAction: 1
+  _outOfScreenThreshold: 5
+  _isOnScreen: 1
+--- !u!1 &513100313072455560
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 513100313072455561}
+  - component: {fileID: 513100313072455556}
+  - component: {fileID: 513100313072455559}
+  - component: {fileID: 4582309563942546548}
+  - component: {fileID: 7189807251459471856}
+  m_Layer: 7
+  m_Name: Enemy1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &513100313072455561
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100313072455560}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalScale: {x: 1.43, y: 1.43, z: 1.43}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 513100314056389607}
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &513100313112759716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 513100313112759717}
+  m_Layer: 7
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &513100313112759717
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100313112759716}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3.5, y: 1, z: 0.25}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 513100313279907343}
+  m_Father: {fileID: 513100314056389607}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &513100313246575640
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100313246575645}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: c4635555604429341876ace562444c50, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &513100313246575641
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100313246575645}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &513100313246575642
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100313246575645}
+  m_LocalRotation: {x: 0, y: 0, z: 0.08715578, w: 0.9961947}
+  m_LocalPosition: {x: -0.35, y: 0.65, z: 0}
+  m_LocalScale: {x: 0.45, y: 0.55, z: 0.45}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 513100314056389607}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 10}
+--- !u!1 &513100313246575645
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 513100313246575642}
+  - component: {fileID: 513100313246575641}
+  - component: {fileID: 513100313246575640}
+  m_Layer: 7
+  m_Name: Cylinder (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!33 &513100313279907338
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100313279907342}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &513100313279907341
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100313279907342}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: c4635555604429341876ace562444c50, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &513100313279907342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 513100313279907343}
+  - component: {fileID: 513100313279907338}
+  - component: {fileID: 513100313279907341}
+  m_Layer: 7
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &513100313279907343
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100313279907342}
+  m_LocalRotation: {x: 0.00000051409, y: 0.5000004, z: -0.4999997, w: 0.70710677}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 513100313112759717}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 30, y: 54.736, z: -54.736}
+--- !u!23 &513100313309979312
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100313309979317}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: c4635555604429341876ace562444c50, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &513100313309979313
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100313309979317}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &513100313309979314
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100313309979317}
+  m_LocalRotation: {x: 0, y: 0, z: -0.08715578, w: 0.9961947}
+  m_LocalPosition: {x: 0.35, y: 0.65, z: 0}
+  m_LocalScale: {x: 0.45000002, y: 0.55, z: 0.45000002}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 513100314056389607}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -10}
+--- !u!1 &513100313309979317
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 513100313309979314}
+  - component: {fileID: 513100313309979313}
+  - component: {fileID: 513100313309979312}
+  m_Layer: 7
+  m_Name: Cylinder (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!33 &513100313487663278
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100313487663282}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &513100313487663281
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100313487663282}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: c4635555604429341876ace562444c50, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &513100313487663282
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 513100313487663283}
+  - component: {fileID: 513100313487663278}
+  - component: {fileID: 513100313487663281}
+  m_Layer: 7
+  m_Name: Capsule (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &513100313487663283
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100313487663282}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -1.065, z: 0}
+  m_LocalScale: {x: 0.39924937, y: 0.57510376, z: 0.6803916}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 513100314056389607}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!33 &513100313670170906
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100313670170910}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &513100313670170909
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100313670170910}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 48cf9eaf50634c34e9ed4f7b3d5ae7e2, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &513100313670170910
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 513100313670170911}
+  - component: {fileID: 513100313670170906}
+  - component: {fileID: 513100313670170909}
+  m_Layer: 7
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &513100313670170911
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100313670170910}
+  m_LocalRotation: {x: -0.3530691, y: 0.3563374, z: -0.14366262, w: 0.8530692}
+  m_LocalPosition: {x: 0, y: -0.75, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 513100312718946014}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -30, y: 55, z: -35}
+--- !u!33 &513100313711067350
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100313711067354}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &513100313711067353
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100313711067354}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 734b9be7ba5bc384487c0d09dbd5c042, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &513100313711067354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 513100313711067355}
+  - component: {fileID: 513100313711067350}
+  - component: {fileID: 513100313711067353}
+  m_Layer: 7
+  m_Name: Capsule
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &513100313711067355
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100313711067354}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.423, z: -0.223}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.33333334}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 513100314056389607}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &513100314056389606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 513100314056389607}
+  m_Layer: 7
+  m_Name: Model
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &513100314056389607
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100314056389606}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 513100314148610956}
+  - {fileID: 513100313711067355}
+  - {fileID: 513100313112759717}
+  - {fileID: 513100312718946014}
+  - {fileID: 513100313487663283}
+  - {fileID: 513100313246575642}
+  - {fileID: 513100313309979314}
+  - {fileID: 513100312486649716}
+  m_Father: {fileID: 513100313072455561}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &513100314148610954
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100314148610959}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: c4635555604429341876ace562444c50, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &513100314148610955
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100314148610959}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &513100314148610956
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100314148610959}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0.6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 513100314056389607}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &513100314148610959
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 513100314148610956}
+  - component: {fileID: 513100314148610955}
+  - component: {fileID: 513100314148610954}
+  m_Layer: 7
+  m_Name: Cylinder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &4582309563942546548
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100313072455560}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.34}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.9, y: 3.2}
+  m_EdgeRadius: 0
+--- !u!61 &7189807251459471856
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513100313072455560}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.71, y: 1}
+  m_EdgeRadius: 0

@@ -10,6 +10,8 @@ public static class Utils
 
     public static Quaternion LookAt2D(Vector3 from, Vector3 to) => LookAt2D(to - from);
 
+    public static Vector3 Rotate2D(Vector3 vector, float angle) => Quaternion.Euler(new Vector3(0, 0, angle)) * vector;
+
     public static Vector3 Vector3Lerp(Vector3 start, Vector3 end, float delta)
     {
         return new Vector3
