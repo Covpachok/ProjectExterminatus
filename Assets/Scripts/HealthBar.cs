@@ -18,6 +18,8 @@ public class HealthBar : MonoBehaviour
         _player = FindObjectOfType<Player>();
         if(_player is null)
             Debug.Log("ERROR: HealthBar didn't find Player");
+
+        _player.HpChanged += UpdateHpBar;
     }
 
     private void LateUpdate()

@@ -12,9 +12,8 @@ public class Player : MonoBehaviour
     [SerializeField] private int _currentHealth;
     [SerializeField] private int _maxHealth;
     
-    [Space(25)]
-    
-    [SerializeField] private UnityEvent _onHpChange;
+    public delegate void HpChangedEventHandler();
+    public event HpChangedEventHandler HpChanged;
     
     public int TouchDamage => _touchDamage;
     public int MaxHp => _maxHealth;
@@ -97,7 +96,7 @@ public class Player : MonoBehaviour
     {
         _currentHealth -= amount;
         
-        _onHpChange.Invoke();
+        HpChanged?.Invoke();
         
         if(_currentHealth <= 0)
             OnPlayerDeath();
@@ -108,8 +107,8 @@ public class Player : MonoBehaviour
         _currentHealth += amount;
         if (_currentHealth > _maxHealth)
             _currentHealth = _maxHealth;
-        
-        _onHpChange.Invoke();
+
+        HpChanged?.Invoke();
     }
 
     private void OnPlayerDeath()
