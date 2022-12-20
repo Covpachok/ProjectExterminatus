@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
@@ -16,8 +15,11 @@ public class HealthBar : MonoBehaviour
     private void Awake()
     {
         _player = FindObjectOfType<Player>();
-        if(_player is null)
+        if (_player is null)
+        {
             Debug.Log("ERROR: HealthBar didn't find Player");
+            return;
+        }
 
         _player.HpChanged += UpdateHpBar;
     }

@@ -1,6 +1,5 @@
 using Projectiles;
 using UnityEngine;
-using UnityEngine.Events;
 using Weapons;
 
 public class Player : MonoBehaviour
