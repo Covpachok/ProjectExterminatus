@@ -20,7 +20,7 @@ public class HealthBar : MonoBehaviour
             Debug.Log("ERROR: HealthBar didn't find Player");
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         var fillF = _frontHealthBar.fillAmount; // Saves a fill amount of hp bar
         var fillB = _backHealthBar.fillAmount;
