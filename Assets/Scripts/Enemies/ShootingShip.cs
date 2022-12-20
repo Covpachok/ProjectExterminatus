@@ -1,13 +1,14 @@
 using System.Collections;
 using UnityEngine;
+using Weapons;
 
-namespace Enemy
+namespace Enemies
 {
-    public class ShootingShip : Enemy
+    public class ShootingShip : Enemies.Enemy
     {
         [SerializeField] private float _delayBetweenShots;
             
-        private Weapon.Weapon _weapon;
+        private Weapon _weapon;
 
         private void Start()
         {
@@ -17,7 +18,7 @@ namespace Enemy
         protected override void Initialize()
         {
             base.Initialize();
-            _weapon = GetComponentInChildren<Weapon.Weapon>();
+            _weapon = GetComponentInChildren<Weapon>();
             if(_weapon is null)
                 Debug.LogError("ERROR: ShootingShip have no attached weapon");
             

@@ -1,9 +1,9 @@
 using System.Collections;
-using Projectile;
+using Projectiles;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Weapon
+namespace Weapons
 {
     public class MissileLauncher : Weapon
     {

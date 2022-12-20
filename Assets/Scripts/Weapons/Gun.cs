@@ -1,7 +1,7 @@
-using Projectile;
+using Projectiles;
 using UnityEngine;
 
-namespace Weapon
+namespace Weapons
 {
     public class Gun : Weapon
     {

@@ -1,27 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class InGameUi : MonoBehaviour
+namespace UI
 {
-    public static bool gameIsPaused = false;
-    public void MainMenu()
+    public class InGameUi : MonoBehaviour
     {
-        SceneManager.LoadScene(0);
-    }
-
-    public void Pause()
-    {
-        if (!gameIsPaused)
+        public static bool gameIsPaused = false;
+        public void MainMenu()
         {
-            gameIsPaused = true;
-            Time.timeScale = 0f;
+            SceneManager.LoadScene(0);
         }
-        else
+
+        public void Pause()
         {
-            gameIsPaused = false;
-            Time.timeScale = 1f;
+            if (!gameIsPaused)
+            {
+                gameIsPaused = true;
+                Time.timeScale = 0f;
+            }
+            else
+            {
+                gameIsPaused = false;
+                Time.timeScale = 1f;
+            }
         }
     }
 }

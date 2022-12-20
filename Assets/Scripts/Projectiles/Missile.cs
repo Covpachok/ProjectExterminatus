@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Projectile
+namespace Projectiles
 {
     public class Missile : Projectile
     {
@@ -159,7 +159,7 @@ namespace Projectile
             }
             else
             {
-                var enemy = other.GetComponent<Enemy.Enemy>();
+                var enemy = other.GetComponent<Enemies.Enemy>();
                 if (enemy is not null)
                 {
                     Destroy(gameObject);
