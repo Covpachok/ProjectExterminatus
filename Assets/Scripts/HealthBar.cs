@@ -8,20 +8,13 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _hpText;
     [SerializeField] private Image _frontHealthBar;
     [SerializeField] private Image _backHealthBar;
+    private int _playerCurrentHP;
+    private int _playerMaxHP;
     private float _lerpTimer; // idk maybe it could've been a local variable try check it.    
-
-    private Player _player;
 
     private void Awake()
     {
-        _player = FindObjectOfType<Player>();
-        if (_player is null)
-        {
-            Debug.Log("ERROR: HealthBar didn't find Player");
-            return;
-        }
-
-        _player.HpChanged += UpdateHpBar;
+        _hpText.SetText(_playerCurrentHP + "/" + _playerMaxHP);
     }
 
     private void LateUpdate()
@@ -29,7 +22,7 @@ public class HealthBar : MonoBehaviour
         var fillF = _frontHealthBar.fillAmount; // Saves a fill amount of hp bar
         var fillB = _backHealthBar.fillAmount;
         var hFraction =
-            _player.CurrentHp / (float)_player.MaxHp; // Decimal view of cur. Hp yo max hp, to compare with fill amount
+            _playerCurrentHP / (float)_playerMaxHP; // Decimal view of cur. Hp to max hp, to compare with fill amount
         float percentComplete;
         if (fillB > hFraction) // If took damage
         {
@@ -51,9 +44,26 @@ public class HealthBar : MonoBehaviour
         
     }
 
+    private void SetPlayerStats(int CurrentHp, int MaxHp)
+    {
+        _playerCurrentHP = CurrentHp;
+        _playerMaxHP = MaxHp;
+        UpdateHpBar();
+    }
+
     public void UpdateHpBar()
     {
-        _hpText.SetText(_player.CurrentHp + "/" + _player.MaxHp);
+        _hpText.SetText(_playerCurrentHP + "/" + _playerMaxHP);
         _lerpTimer = 0;
+    }
+
+    private void OnEnable()
+    {
+        Player.HpChanged += SetPlayerStats;
+    }
+
+    private void OnDisable()
+    {
+        Player.HpChanged -= SetPlayerStats;
     }
 }

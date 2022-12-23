@@ -11,8 +11,8 @@ public class Player : MonoBehaviour
     [SerializeField] private int _currentHealth;
     [SerializeField] private int _maxHealth;
     
-    public delegate void HpChangedEventHandler();
-    public event HpChangedEventHandler HpChanged;
+    public delegate void HpChangedEventHandler(int _currentHealth, int _maxHealth);
+    public static event HpChangedEventHandler HpChanged;
     
     public int TouchDamage => _touchDamage;
     public int MaxHp => _maxHealth;
@@ -32,7 +32,12 @@ public class Player : MonoBehaviour
         Debug.Log("Player weapons amount: " + _weapons.Length);
     }
 
-    void Update()
+    private void Start()
+    {
+        HpChanged?.Invoke(CurrentHp, MaxHp);
+    }
+
+    private void Update()
     {
         // Movement
         Move(_playerActions.Move.ReadValue<Vector2>());
@@ -95,7 +100,7 @@ public class Player : MonoBehaviour
     {
         _currentHealth -= amount;
         
-        HpChanged?.Invoke();
+        HpChanged?.Invoke(CurrentHp, MaxHp);
         
         if(_currentHealth <= 0)
             OnPlayerDeath();
@@ -107,7 +112,7 @@ public class Player : MonoBehaviour
         if (_currentHealth > _maxHealth)
             _currentHealth = _maxHealth;
 
-        HpChanged?.Invoke();
+        HpChanged?.Invoke(CurrentHp, MaxHp);
     }
 
     private void OnPlayerDeath()
