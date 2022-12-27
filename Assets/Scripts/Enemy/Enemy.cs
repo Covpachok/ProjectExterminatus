@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 namespace Enemy
 {
@@ -8,7 +9,7 @@ namespace Enemy
         [SerializeField] protected float _movementSpeed;
         [SerializeField] protected int _maxHealth;
         [SerializeField] protected int _touchDamage;
-        
+        public static Action<Vector3> onEnemyDied;
         protected int _currentHealth;
 
         public int TouchDamage => _touchDamage;
@@ -45,7 +46,7 @@ namespace Enemy
                 _currentHealth -= projectile.Damage;
                 print($"Taken {projectile.Damage} damage. HP: {_currentHealth}");
                 if(_currentHealth <= 0)
-                    Destroy(gameObject);
+                    Die();
                 
                 return;
             }
@@ -56,10 +57,16 @@ namespace Enemy
                 _currentHealth -= player.TouchDamage;
                 print($"Taken {player.TouchDamage} damage. HP: {_currentHealth}");
                 if(_currentHealth <= 0)
-                    Destroy(gameObject);
+                    Die();
                 
                 return;
             }
+        }
+
+        private void Die()
+        {
+            onEnemyDied?.Invoke(transform.position);
+            Destroy(gameObject);
         }
     }
 }

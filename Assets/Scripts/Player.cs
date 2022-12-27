@@ -125,14 +125,14 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void TakeDamage(int amount)
+    internal void TakeDamage(int amount)
     {
         _currentHealth -= amount;
         _lerpTimer = 0f;
         _hpText.SetText(_currentHealth.ToString());
     }
 
-    private void RestoreHealth(int amount)
+    internal void RestoreHealth(int amount)
     {
         // Need to add Mathf.Clamp somewhere to prevent hp from bypassing max limit
         _currentHealth -= amount;
