@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Projectiles;
 using UnityEngine;
@@ -11,43 +12,51 @@ namespace Weapons
 
         [SerializeField] private Missile.MissileData _missileData;
 
-        [SerializeField] private int _maxCharges;
-        [SerializeField] private int _chargesReloadingAmount;
-        [SerializeField] private int _minChargesShoot;
-        [SerializeField] private int _maxChagresShoot;
-        [SerializeField] private float _chargesReloadingDelay;
+        [Space(10)]
+        [SerializeField] private int _maxChargesAmount;
+
+        [SerializeField] private int _maxChargesPerShot;
+        [SerializeField] private int _minChargesPerShot;
+
+        [SerializeField] private int _reloadingAmount;
+        [SerializeField] private float _reloadingDelay;
+
         [SerializeField] private float _shootingDelay;
 
-        private int _currentCharges;
-        private float _lastShootTime;
+        [Space(25)]
+        // SerializeField FOR DEBUGGING
+        [SerializeField] private int _currentCharges;
+
+        private float _lastShotTime;
 
         private void Start()
         {
-            _currentCharges = _maxCharges;
-            StartCoroutine(UpdateCharges());
+            _currentCharges = _maxChargesAmount;
+            StartCoroutine(Reload());
         }
 
-        private IEnumerator UpdateCharges()
+        private IEnumerator Reload()
         {
-            if (_currentCharges < _maxCharges)
-                _currentCharges += _chargesReloadingAmount;
+            for (;;)
+            {
+                if (_currentCharges < _maxChargesAmount)
+                    _currentCharges += _reloadingAmount;
 
-            if (_currentCharges > _maxCharges)
-                _currentCharges = _maxCharges;
+                if (_currentCharges > _maxChargesAmount)
+                    _currentCharges = _maxChargesAmount;
 
-            yield return new WaitForSeconds(_chargesReloadingDelay);
-            if (_currentCharges != _maxCharges)
-                StartCoroutine(UpdateCharges());
+                yield return new WaitForSeconds(_reloadingDelay);
+            }
         }
 
         public override void Shoot()
         {
-            if (_currentCharges <= _minChargesShoot || _lastShootTime + _shootingDelay > Time.time)
+            if (_currentCharges <= _maxChargesPerShot || _lastShotTime + _shootingDelay > Time.time)
                 return;
 
-            _lastShootTime = Time.time;
+            _lastShotTime = Time.time;
 
-            var chargesToShoot = _currentCharges > _maxChagresShoot ? _maxChagresShoot : _currentCharges;
+            var chargesToShoot = _currentCharges > _minChargesPerShot ? _minChargesPerShot : _currentCharges;
             var pos = transform.position;
 
             for (int i = 0; i < chargesToShoot; ++i)
@@ -58,7 +67,6 @@ namespace Weapons
             }
 
             _currentCharges -= chargesToShoot;
-            StartCoroutine(UpdateCharges());
         }
     }
 }

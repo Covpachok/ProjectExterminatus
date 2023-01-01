@@ -12,7 +12,7 @@ namespace Weapons
 
         [SerializeField] private float _shootingDelay;
 
-        private float _lastShootTime;
+        private float _lastShotTime;
 
         private float _timeout;
 
