@@ -924,8 +924,8 @@ GameObject:
   - component: {fileID: 469049429}
   - component: {fileID: 469049430}
   - component: {fileID: 469049431}
-  - component: {fileID: 469049433}
   - component: {fileID: 469049432}
+  - component: {fileID: 469049433}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -1986,6 +1986,52 @@ Transform:
   m_Father: {fileID: 1535932941}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1 &1667207285
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1667207286}
+  - component: {fileID: 1667207287}
+  m_Layer: 0
+  m_Name: Powerup Manager xD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1667207286
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667207285}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1705723705}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1667207287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667207285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed84913d4ae99d4a88ca56b9ea019a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _powerups:
+  - {fileID: 5713737484406673133, guid: 99133fa5bdbfdf84dbbc0e0d37ff992a, type: 3}
 --- !u!1 &1705723704
 GameObject:
   m_ObjectHideFlags: 0
@@ -2016,6 +2062,7 @@ Transform:
   m_Children:
   - {fileID: 469049429}
   - {fileID: 2042833366}
+  - {fileID: 1667207286}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
