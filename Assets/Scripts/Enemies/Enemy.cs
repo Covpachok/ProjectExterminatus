@@ -1,7 +1,8 @@
+using Projectiles;
 using UnityEngine;
 using System;
 
-namespace Enemy
+namespace Enemies
 {
     // Enemy.Enemy looks weird
     public class Enemy : MonoBehaviour
@@ -37,7 +38,7 @@ namespace Enemy
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            var projectile = other.GetComponent<Projectile.Projectile>();
+            var projectile = other.GetComponent<Projectile>();
             if (projectile is not null)
             {
                 if (projectile.TargetPlayer)

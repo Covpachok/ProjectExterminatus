@@ -1,29 +1,24 @@
-using System;
-using Unity.VisualScripting;
+using Projectiles;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
+using Weapons;
 
 public class Player : MonoBehaviour
 {
-    [Header("Combat")]
-    [Tooltip("Combat stats idk")]
+    [Header("Stats")]
     [SerializeField] private float _movementSpeed;
     [SerializeField] private int _touchDamage = 50;
-
-    [Header("Health")]
-    [Tooltip("Fields for health and healthbar things")]
     // Serialized only for debugging
     [SerializeField] private int _currentHealth;
     [SerializeField] private int _maxHealth;
-    [SerializeField] private float _chipSpeed = 2f; // Speed of health bar fade
-    [SerializeField] private TextMeshProUGUI _hpText;
-    [SerializeField] private Image _frontHealthBar;
-    [SerializeField] private Image _backHealthBar;
-    private float _lerpTimer; // idk maybe it could'v been a loacal variable try check it.
+    
+    public delegate void HpChangedEventHandler(int _currentHealth, int _maxHealth);
+    public static event HpChangedEventHandler HpChanged;
+    
     public int TouchDamage => _touchDamage;
+    public int MaxHp => _maxHealth;
+    public int CurrentHp => _currentHealth;
 
-    private Weapon.Weapon[] _weapons;
+    private Weapon[] _weapons;
 
     private PlayerInput _playerInput;
     private PlayerInput.PlayerActions _playerActions;
@@ -32,13 +27,17 @@ public class Player : MonoBehaviour
     {
         _playerInput = new PlayerInput(); // Located in Input Actions
         _playerActions = _playerInput.Player;
-        _weapons = gameObject.GetComponentsInChildren<Weapon.Weapon>();
+        _weapons = gameObject.GetComponentsInChildren<Weapon>();
         _currentHealth = _maxHealth;
-        _hpText.SetText(_currentHealth.ToString());
         Debug.Log("Player weapons amount: " + _weapons.Length);
     }
 
-    void Update()
+    private void Start()
+    {
+        HpChanged?.Invoke(CurrentHp, MaxHp);
+    }
+
+    private void Update()
     {
         // Movement
         Move(_playerActions.Move.ReadValue<Vector2>());
@@ -46,7 +45,6 @@ public class Player : MonoBehaviour
         if (_playerActions.Fire.IsPressed())
             foreach (var weapon in _weapons)
                 weapon.Shoot();
-        UpdatePlayerHPBar();
     }
 
     private void FixedUpdate()
@@ -60,11 +58,6 @@ public class Player : MonoBehaviour
         var vertical = input.y * Vector3.up; //Input.GetAxis("Vertical") * Vector3.up;
         var horizontal = input.x * Vector3.right; //Input.GetAxis("Horizontal") * Vector3.right;
         transform.Translate((horizontal + vertical) * (Time.deltaTime * _movementSpeed));
-
-        // Bababooye Original
-        // var vertical = Input.GetAxis("Vertical") * Vector3.up; //Input.GetAxis("Vertical") * Vector3.up;
-        // var horizontal = Input.GetAxis("Horizontal") * Vector3.right; //Input.GetAxis("Horizontal") * Vector3.right;
-        // transform.Translate((horizontal + vertical) * (Time.deltaTime * _movementSpeed));
     }
 
     private void OnEnable()
@@ -80,7 +73,7 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log($"Player hit {other.name}");
-        var projectile = other.GetComponent<Projectile.Projectile>();
+        var projectile = other.GetComponent<Projectile>();
         if (projectile is not null)
         {
             if (!projectile.TargetPlayer)
@@ -92,7 +85,7 @@ public class Player : MonoBehaviour
             return;
         }
 
-        var enemy = other.GetComponent<Enemy.Enemy>();
+        var enemy = other.GetComponent<Enemies.Enemy>();
         if (enemy is not null)
         {
             TakeDamage(enemy.TouchDamage);
@@ -102,42 +95,24 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void UpdatePlayerHPBar()
-    {
-        float fillF = _frontHealthBar.fillAmount; // Saves a fill amount of hp bar
-        float fillB = _backHealthBar.fillAmount;
-        float hFraction = (float)_currentHealth / (float)_maxHealth; // Decimal view of cur. Hp yo max hp, to compare with fill amount
-        if (fillB > hFraction) // If took damage
-        {
-            _frontHealthBar.fillAmount = hFraction;
-            _backHealthBar.color = Color.red;
-            _lerpTimer += Time.deltaTime;
-            float percentComplete = _lerpTimer / _chipSpeed;
-            _backHealthBar.fillAmount = Mathf.Lerp(fillB, hFraction, percentComplete);
-        }
-        if (fillF < hFraction) // If heals
-        {
-            _backHealthBar.color = Color.green;
-            _backHealthBar.fillAmount = hFraction;
-            _lerpTimer += Time.deltaTime;
-            float percentComplete = _lerpTimer / _chipSpeed;
-            _frontHealthBar.fillAmount = Mathf.Lerp(fillF, _backHealthBar.fillAmount, percentComplete);
-        }
-    }
 
     internal void TakeDamage(int amount)
     {
         _currentHealth -= amount;
-        _lerpTimer = 0f;
-        _hpText.SetText(_currentHealth.ToString());
+        
+        HpChanged?.Invoke(CurrentHp, MaxHp);
+        
+        if(_currentHealth <= 0)
+            OnPlayerDeath();
     }
 
     internal void RestoreHealth(int amount)
     {
-        // Need to add Mathf.Clamp somewhere to prevent hp from bypassing max limit
-        _currentHealth -= amount;
-        _lerpTimer = 0f;
-        _hpText.SetText(_currentHealth.ToString());
+        _currentHealth += amount;
+        if (_currentHealth > _maxHealth)
+            _currentHealth = _maxHealth;
+
+        HpChanged?.Invoke(CurrentHp, MaxHp);
     }
 
     private void OnPlayerDeath()

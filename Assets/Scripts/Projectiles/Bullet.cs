@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Projectile
+namespace Projectiles
 {
     public class Bullet : Projectile
     {
@@ -57,7 +57,7 @@ namespace Projectile
             }
             else
             {
-                var enemy = other.GetComponent<Enemy.Enemy>();
+                var enemy = other.GetComponent<Enemies.Enemy>();
                 if (enemy is not null)
                 {
                     Destroy(gameObject);

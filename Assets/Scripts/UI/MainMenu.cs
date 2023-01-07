@@ -1,18 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using  UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+namespace UI
 {
-    public void StartGame()
+    public class MainMenu : MonoBehaviour
     {
-        SceneManager.LoadScene(1);
-    }
+        public void StartGame()
+        {
+            SceneManager.LoadScene(1);
+        }
 
-    public void QuitGame()
-    {
-        Debug.Log("Quit");
-        Application.Quit();
+        public void QuitGame()
+        {
+            Debug.Log("Quit");
+            Application.Quit();
+        }
     }
 }

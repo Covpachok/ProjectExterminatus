@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Projectile
+namespace Projectiles
 {
     public abstract class Projectile : MonoBehaviour
     {
