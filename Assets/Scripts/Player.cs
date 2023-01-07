@@ -96,7 +96,7 @@ public class Player : MonoBehaviour
     }
 
 
-    private void TakeDamage(int amount)
+    internal void TakeDamage(int amount)
     {
         _currentHealth -= amount;
         
@@ -106,7 +106,7 @@ public class Player : MonoBehaviour
             OnPlayerDeath();
     }
 
-    private void RestoreHealth(int amount)
+    internal void RestoreHealth(int amount)
     {
         _currentHealth += amount;
         if (_currentHealth > _maxHealth)
