@@ -1,4 +1,5 @@
 using System;
+using System.Xml;
 using UnityEngine;
 
 namespace Projectiles
@@ -44,25 +45,5 @@ namespace Projectiles
             transform.position += _direction * (delta * _speed);
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (_targetPlayer)
-            {
-                var player = other.GetComponent<Player>();
-                if (player is not null)
-                {
-                    Debug.Log("HIT PLAYER!!");
-                    Destroy(gameObject);
-                }
-            }
-            else
-            {
-                var enemy = other.GetComponent<Enemies.Enemy>();
-                if (enemy is not null)
-                {
-                    Destroy(gameObject);
-                }
-            }
-        }
     }
 }

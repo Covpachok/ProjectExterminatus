@@ -1,18 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Powerup : MonoBehaviour
+namespace Powerups
 {
-    [SerializeField] private PowerUpEffect _powerUpEffect;
-    
-    private void OnTriggerEnter2D(Collider2D other)
+    public class Powerup : MonoBehaviour
     {
-        var player = other.GetComponent<Player>();
-        if (player is not null)
+        [SerializeField] private PowerUpEffect _powerUpEffect;
+    
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            Destroy(gameObject);
-            _powerUpEffect.Apply(other.gameObject);
+            var player = other.GetComponent<Player>();
+            if (player is not null)
+            {
+                Destroy(gameObject);
+                _powerUpEffect.Apply(other.gameObject);
+            }
         }
     }
 }

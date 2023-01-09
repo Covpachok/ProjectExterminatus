@@ -1,40 +1,44 @@
+using System;
 using Projectiles;
+using Enemies;
 using UnityEngine;
 using Weapons;
 
-public class Player : MonoBehaviour
+public class Player : Entity
 {
+    //public delegate void HpChangedEventHandler(int CurrentHealth, int _maxHealth);
+    public static Action HpFullyRestored;
+    
     [Header("Stats")]
     [SerializeField] private float _movementSpeed;
-    [SerializeField] private int _touchDamage = 50;
     // Serialized only for debugging
-    [SerializeField] private int _currentHealth;
-    [SerializeField] private int _maxHealth;
     
-    public delegate void HpChangedEventHandler(int _currentHealth, int _maxHealth);
-    public static event HpChangedEventHandler HpChanged;
-    
-    public int TouchDamage => _touchDamage;
-    public int MaxHp => _maxHealth;
-    public int CurrentHp => _currentHealth;
-
     private Weapon[] _weapons;
+    private Shield _shield;
 
     private PlayerInput _playerInput;
     private PlayerInput.PlayerActions _playerActions;
+    
+
+    public bool _TEMPTRIGGER;
 
     private void Awake()
     {
         _playerInput = new PlayerInput(); // Located in Input Actions
         _playerActions = _playerInput.Player;
         _weapons = gameObject.GetComponentsInChildren<Weapon>();
-        _currentHealth = _maxHealth;
+        CurrentHealth = _maxHealth;
         Debug.Log("Player weapons amount: " + _weapons.Length);
     }
 
     private void Start()
     {
-        HpChanged?.Invoke(CurrentHp, MaxHp);
+        _shield = transform.Find("Shield").GetComponent<Shield>();
+        
+        if(_shield is null)
+            Debug.LogError("ERROR: Shield not found.");
+        
+        HpChanged?.Invoke(CurrentHealth, _maxHealth);
     }
 
     private void Update()
@@ -45,6 +49,12 @@ public class Player : MonoBehaviour
         if (_playerActions.Fire.IsPressed())
             foreach (var weapon in _weapons)
                 weapon.Shoot();
+
+        if (_TEMPTRIGGER)
+        {
+            _TEMPTRIGGER = false;
+            HpFullyRestored.Invoke();
+        }
     }
 
     private void FixedUpdate()
@@ -70,54 +80,25 @@ public class Player : MonoBehaviour
         _playerActions.Disable();
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public override void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log($"Player hit {other.name}");
-        var projectile = other.GetComponent<Projectile>();
-        if (projectile is not null)
-        {
-            if (!projectile.TargetPlayer)
-                return;
-
-            TakeDamage(projectile.Damage); // Taking damage is now separate func
-            if (_currentHealth <= 0)
-                OnPlayerDeath();
+        if (!_shield.IsDead)
             return;
-        }
-
-        var enemy = other.GetComponent<Enemies.Enemy>();
-        if (enemy is not null)
-        {
-            TakeDamage(enemy.TouchDamage);
-            if (_currentHealth <= 0)
-                OnPlayerDeath();
-            return;
-        }
-    }
-
-
-    internal void TakeDamage(int amount)
-    {
-        _currentHealth -= amount;
         
-        HpChanged?.Invoke(CurrentHp, MaxHp);
-        
-        if(_currentHealth <= 0)
-            OnPlayerDeath();
+        base.OnTriggerEnter2D(other);
     }
 
-    internal void RestoreHealth(int amount)
+
+    public override void TakeDamage(int amount)
     {
-        _currentHealth += amount;
-        if (_currentHealth > _maxHealth)
-            _currentHealth = _maxHealth;
-
-        HpChanged?.Invoke(CurrentHp, MaxHp);
+        base.TakeDamage(amount);
+        if(IsDead)
+            Die();
     }
 
-    private void OnPlayerDeath()
+    private void Die()
     {
         print("Player is DEAD (X o X)");
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }

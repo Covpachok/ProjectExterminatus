@@ -8,6 +8,6 @@ public class PowerUpHeal : PowerUpEffect
     [SerializeField] private int _amount;
     public override void Apply(GameObject target)
     {
-       target.GetComponent<Player>().RestoreHealth(_amount);
+       target.GetComponent<Player>().RecoverHealth(_amount);
     }
 }

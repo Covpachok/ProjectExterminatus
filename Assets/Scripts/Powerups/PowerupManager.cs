@@ -7,12 +7,12 @@ public class PowerupManager : MonoBehaviour
     [SerializeField] private GameObject[] _powerups;
     private void OnEnable()
     {
-        Enemies.Enemy.onEnemyDied += SpawnPowerup;
+        Enemies.Enemy.Died += SpawnPowerup;
     }
 
     private void OnDisable()
     {
-        Enemies.Enemy.onEnemyDied -= SpawnPowerup;    
+        Enemies.Enemy.Died -= SpawnPowerup;    
     }
 
     // Update is called once per frame

@@ -145,26 +145,5 @@ namespace Projectiles
             transform.Rotate(Vector3.forward, angle);
             _currentDirection = Utils.Rotate2D(_currentDirection, angle);
         }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (_targetPlayer)
-            {
-                var player = other.GetComponent<Player>();
-                if (player is not null)
-                {
-                    Debug.Log("HIT PLAYER!!");
-                    Destroy(gameObject);
-                }
-            }
-            else
-            {
-                var enemy = other.GetComponent<Enemies.Enemy>();
-                if (enemy is not null)
-                {
-                    Destroy(gameObject);
-                }
-            }
-        }
     }
 }

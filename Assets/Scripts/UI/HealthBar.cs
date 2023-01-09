@@ -8,13 +8,16 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _hpText;
     [SerializeField] private Image _frontHealthBar;
     [SerializeField] private Image _backHealthBar;
-    private int _playerCurrentHP;
-    private int _playerMaxHP;
+    private int _playerCurrentHp;
+    private int _playerMaxHp;
     private float _lerpTimer; // idk maybe it could've been a local variable try check it.    
+
+    private Entity _player;
 
     private void Awake()
     {
-        _hpText.SetText(_playerCurrentHP + "/" + _playerMaxHP);
+        _player = GameObject.Find("Player").GetComponent<Entity>();
+        _hpText.SetText(_playerCurrentHp + "/" + _playerMaxHp);
     }
 
     private void LateUpdate()
@@ -22,7 +25,7 @@ public class HealthBar : MonoBehaviour
         var fillF = _frontHealthBar.fillAmount; // Saves a fill amount of hp bar
         var fillB = _backHealthBar.fillAmount;
         var hFraction =
-            _playerCurrentHP / (float)_playerMaxHP; // Decimal view of cur. Hp to max hp, to compare with fill amount
+            _playerCurrentHp / (float)_playerMaxHp; // Decimal view of cur. Hp to max hp, to compare with fill amount
         float percentComplete;
         if (fillB > hFraction) // If took damage
         {
@@ -46,24 +49,24 @@ public class HealthBar : MonoBehaviour
 
     private void SetPlayerStats(int CurrentHp, int MaxHp)
     {
-        _playerCurrentHP = CurrentHp;
-        _playerMaxHP = MaxHp;
+        _playerCurrentHp = CurrentHp;
+        _playerMaxHp = MaxHp;
         UpdateHpBar();
     }
 
     public void UpdateHpBar()
     {
-        _hpText.SetText(_playerCurrentHP + "/" + _playerMaxHP);
+        _hpText.SetText(_playerCurrentHp + "/" + _playerMaxHp);
         _lerpTimer = 0;
     }
 
     private void OnEnable()
     {
-        Player.HpChanged += SetPlayerStats;
+        _player.HpChanged += SetPlayerStats;
     }
 
     private void OnDisable()
     {
-        Player.HpChanged -= SetPlayerStats;
+        _player.HpChanged -= SetPlayerStats;
     }
 }

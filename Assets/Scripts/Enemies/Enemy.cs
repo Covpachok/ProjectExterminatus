@@ -1,29 +1,17 @@
-using Projectiles;
 using UnityEngine;
 using System;
 
 namespace Enemies
 {
-    // Enemy.Enemy looks weird
-    public class Enemy : MonoBehaviour
+    public class Enemy : Entity
     {
+        public static Action<Vector3> Died;
+        
         [SerializeField] protected float _movementSpeed;
-        [SerializeField] protected int _maxHealth;
-        [SerializeField] protected int _touchDamage;
-        public static Action<Vector3> onEnemyDied;
-        protected int _currentHealth;
 
-        public int TouchDamage => _touchDamage;
-
-
-        private void Start()
+        void Start()
         {
             Initialize();
-        }
-
-        protected virtual void Initialize()
-        {
-            _currentHealth = _maxHealth;
         }
 
         void Update()
@@ -36,37 +24,16 @@ namespace Enemies
             transform.Translate(Vector3.down * (_movementSpeed * Time.deltaTime));
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
+        public override void TakeDamage(int amount)
         {
-            var projectile = other.GetComponent<Projectile>();
-            if (projectile is not null)
-            {
-                if (projectile.TargetPlayer)
-                    return;
-                
-                _currentHealth -= projectile.Damage;
-                print($"Taken {projectile.Damage} damage. HP: {_currentHealth}");
-                if(_currentHealth <= 0)
-                    Die();
-                
-                return;
-            }
-
-            var player = other.GetComponent<Player>();
-            if (player is not null)
-            {
-                _currentHealth -= player.TouchDamage;
-                print($"Taken {player.TouchDamage} damage. HP: {_currentHealth}");
-                if(_currentHealth <= 0)
-                    Die();
-                
-                return;
-            }
+            base.TakeDamage(amount);
+            if (IsDead)
+                Die();
         }
 
         private void Die()
         {
-            onEnemyDied?.Invoke(transform.position);
+            Died?.Invoke(transform.position);
             Destroy(gameObject);
         }
     }
