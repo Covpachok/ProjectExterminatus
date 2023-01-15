@@ -1,75 +1,58 @@
 ﻿using System;
 using Projectiles;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
     public Action<int, int> HpChanged;
 
-    [SerializeField] private int _currentHealth;
-    [SerializeField] protected int _maxHealth;
+    [SerializeField] private int _currentHp;
+    [SerializeField] private int _maxHp;
 
-    [Space(10)]
     [SerializeField] private int _touchDamage;
-
     [SerializeField] private float _invulnerabilityTime = 0.25f;
 
     [SerializeField] private bool _isPlayer;
 
-    [Space(25)]
-    private bool _isDead;
+    public int TouchDamage => _touchDamage;
 
-    protected float LastTimeDamageTaken;
+    public int CurrentHp => _currentHp;
 
-    public int TouchDamage
-    {
-        get => _touchDamage;
-        protected set => _touchDamage = value;
-    }
-
-    public int CurrentHealth
-    {
-        get => _currentHealth;
-        protected set => _currentHealth = value;
-    }
-
-    public bool IsDead
-    {
-        get => _isDead;
-        protected set => _isDead = value;
-    }
+    public int MaxHp => _maxHp;
 
     public bool IsPlayer => _isPlayer;
+    public bool IsDead { get; private set; }
+
+    protected float LastTimeDamageTaken { get; set; }
 
 
     protected virtual void Initialize()
     {
-        _currentHealth = _maxHealth;
+        _currentHp = _maxHp;
     }
 
     public virtual void TakeDamage(int amount)
     {
-        _currentHealth -= amount;
-        if (_currentHealth <= 0)
+        _currentHp -= amount;
+        if (_currentHp <= 0)
         {
-            _currentHealth = 0;
+            _currentHp = 0;
             IsDead = true;
         }
 
         LastTimeDamageTaken = Time.time;
 
         print($"{gameObject.name}: taken damage {amount}");
-        HpChanged?.Invoke(CurrentHealth, _maxHealth);
+        HpChanged?.Invoke(CurrentHp, _maxHp);
     }
 
-    public virtual void RecoverHealth(int amount)
+    public virtual void RestoreHp(int amount)
     {
-        _currentHealth += amount;
-        if (_currentHealth > _maxHealth)
-            _currentHealth = _maxHealth;
+        _currentHp += amount;
+        if (_currentHp > _maxHp)
+            _currentHp = _maxHp;
 
-        HpChanged?.Invoke(_currentHealth, _maxHealth);
+        HpChanged?.Invoke(_currentHp, _maxHp);
     }
 
     public virtual void OnTriggerEnter2D(Collider2D col)
@@ -91,11 +74,17 @@ public class Entity : MonoBehaviour
         }
 
         var entity = col.GetComponent<Entity>();
-        if (entity is not null && !IsInvulnureable())
+        if (entity is not null && !IsInvulnerable())
         {
             TakeDamage(entity._touchDamage);
         }
     }
 
-    public bool IsInvulnureable() => LastTimeDamageTaken + _invulnerabilityTime > Time.time;
+    public virtual void Revive()
+    {
+        IsDead = false;
+    }
+    
+    public bool IsInvulnerable() => LastTimeDamageTaken + _invulnerabilityTime > Time.time;
+    public bool IsHpFull() => _currentHp == _maxHp;
 }

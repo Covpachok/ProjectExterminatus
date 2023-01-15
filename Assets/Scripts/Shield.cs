@@ -20,9 +20,9 @@ public class Shield : Entity
     {
         base.Initialize();
         _modelMaterial = transform.Find("Model").GetComponent<Renderer>().material;
-        UpdateMaterial(CurrentHealth, _maxHealth);
+        UpdateMaterial(CurrentHp, MaxHp);
         
-        Player.HpFullyRestored += Restore;
+        Player.HpFullyRestored += Revive;
         HpChanged += UpdateMaterial;
     }
 
@@ -34,22 +34,22 @@ public class Shield : Entity
         if (Time.time > LastTimeDamageTaken + _recoveryDelay && _isDamageTakenRecently)
         {
             _isDamageTakenRecently = false;
-            StartCoroutine(HealthRecovery());
+            StartCoroutine(HealthRegeneration());
         }
     }
 
-    private IEnumerator HealthRecovery()
+    private IEnumerator HealthRegeneration()
     {
-        while (CurrentHealth != _maxHealth && !_isDamageTakenRecently)
+        while (CurrentHp != MaxHp && !_isDamageTakenRecently)
         {
-            RecoverHealth();
+            RestoreHealth();
             yield return new WaitForSeconds(_tick);
         }
     }
 
-    private void RecoverHealth()
+    private void RestoreHealth()
     {
-        RecoverHealth(_recoveryPerTick);
+        RestoreHp(_recoveryPerTick);
     }
     
     public override void TakeDamage(int amount)
@@ -58,9 +58,9 @@ public class Shield : Entity
         _isDamageTakenRecently = true;
     }
 
-    private void Restore()
+    public override void Revive()
     {
-        IsDead = false;
+        base.Revive();
         // Delay before shield restoration
         LastTimeDamageTaken = Time.time;
     }
@@ -68,6 +68,7 @@ public class Shield : Entity
     private void UpdateMaterial(int curr, int max)
     {
         var color = _modelMaterial.color;
-        _modelMaterial.color = new Color(color.r, color.g, color.b, CurrentHealth / (float)_maxHealth * 0.5f);
+        print($"{CurrentHp}/{MaxHp} - {CurrentHp / (float)MaxHp * 0.5f}");
+        _modelMaterial.color = new Color(color.r, color.g, color.b, CurrentHp / (float)MaxHp * 0.5f);
     }
 }

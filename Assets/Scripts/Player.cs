@@ -1,44 +1,43 @@
 using System;
-using Projectiles;
-using Enemies;
 using UnityEngine;
 using Weapons;
 
 public class Player : Entity
 {
-    //public delegate void HpChangedEventHandler(int CurrentHealth, int _maxHealth);
+    //public delegate void HpChangedEventHandler(int CurrentHealth, int MaxHealth);
     public static Action HpFullyRestored;
-    
+
     [Header("Stats")]
     [SerializeField] private float _movementSpeed;
     // Serialized only for debugging
-    
+
     private Weapon[] _weapons;
     private Shield _shield;
 
     private PlayerInput _playerInput;
     private PlayerInput.PlayerActions _playerActions;
-    
-
-    public bool _TEMPTRIGGER;
 
     private void Awake()
     {
+        Initialize();
+    }
+
+    protected override void Initialize()
+    {
+        base.Initialize();
         _playerInput = new PlayerInput(); // Located in Input Actions
         _playerActions = _playerInput.Player;
         _weapons = gameObject.GetComponentsInChildren<Weapon>();
-        CurrentHealth = _maxHealth;
-        Debug.Log("Player weapons amount: " + _weapons.Length);
     }
 
     private void Start()
     {
         _shield = transform.Find("Shield").GetComponent<Shield>();
-        
-        if(_shield is null)
+
+        if (_shield is null)
             Debug.LogError("ERROR: Shield not found.");
-        
-        HpChanged?.Invoke(CurrentHealth, _maxHealth);
+
+        HpChanged?.Invoke(CurrentHp, MaxHp);
     }
 
     private void Update()
@@ -50,9 +49,10 @@ public class Player : Entity
             foreach (var weapon in _weapons)
                 weapon.Shoot();
 
-        if (_TEMPTRIGGER)
+        // When player is at full hp, shield automatically restores
+        if (_shield.IsDead && IsHpFull())
         {
-            _TEMPTRIGGER = false;
+            _shield.Revive();
             HpFullyRestored.Invoke();
         }
     }
@@ -84,7 +84,7 @@ public class Player : Entity
     {
         if (!_shield.IsDead)
             return;
-        
+
         base.OnTriggerEnter2D(other);
     }
 
@@ -92,7 +92,7 @@ public class Player : Entity
     public override void TakeDamage(int amount)
     {
         base.TakeDamage(amount);
-        if(IsDead)
+        if (IsDead)
             Die();
     }
 

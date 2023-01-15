@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PowerupManager : MonoBehaviour
 {
+    /*
     [SerializeField] private GameObject[] _powerups;
     private void OnEnable()
     {
@@ -25,4 +26,5 @@ public class PowerupManager : MonoBehaviour
     {
         Instantiate(_powerups[Random.Range(0, _powerups.Length)], position, Quaternion.identity);
     }
+    */
 }

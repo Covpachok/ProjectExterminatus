@@ -1,13 +1,16 @@
 using UnityEngine;
 using System;
+using ObjectPools;
 
 namespace Enemies
 {
     public class Enemy : Entity
     {
-        public static Action<Vector3> Died;
+        public static Action Died;
         
         [SerializeField] protected float _movementSpeed;
+
+        public GameObjectPool TEMPPOOL;
 
         void Start()
         {
@@ -33,8 +36,9 @@ namespace Enemies
 
         private void Die()
         {
-            Died?.Invoke(transform.position);
-            Destroy(gameObject);
+            Died?.Invoke();
+            TEMPPOOL.Pool.Release(gameObject);
+            //Destroy(gameObject);
         }
     }
 }

@@ -151,9 +151,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e4bf11686f6e5340a6c6a1de69c6b3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 2.5
-  _maxHealth: 10
+  _currentHp: 0
+  _maxHp: 5
   _touchDamage: 2
+  _invulnerabilityTime: 0.25
+  _isPlayer: 0
+  _movementSpeed: 2.5
   _delayBetweenShots: 1
 --- !u!61 &4733086735893447502
 BoxCollider2D:
